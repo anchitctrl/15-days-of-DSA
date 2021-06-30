@@ -9,8 +9,11 @@ public class second_largest {
 		System.out.println();
 	}
 	public void secondLarge(int[] arr) {
-		Arrays.sort(arr); 
-		System.out.println(arr[arr.length-2]);
+		if(arr.length==1) System.out.println("not possible");
+		else {
+			Arrays.sort(arr); 
+			System.out.println(arr[arr.length-2]);
+		}
 	}
 	public void arrdemo() {
 		Scanner sc=new Scanner(System.in);

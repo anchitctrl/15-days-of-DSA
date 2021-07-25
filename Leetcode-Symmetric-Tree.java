@@ -25,12 +25,12 @@ class Solution {
         return rheight+1;
     }
     
-    public List<Integer> currentLevel(TreeNode root,int level,List<Integer> temp){
+    public List<String> currentLevel(TreeNode root,int level,List<String> temp){
         if(root==null){
-            temp.add(12);
+            temp.add("null");
         }
         else if(level==1){
-            temp.add(root.val);
+            temp.add(String.valueOf(root.val));
         }
         else if(level>1){
             currentLevel(root.left,level-1,temp);
@@ -39,11 +39,11 @@ class Solution {
         return temp;
     }
     
-    public boolean isPalindrome(List<Integer> temp){
+    public boolean isPalindrome(List<String> temp){
         int i=0;
         int j=temp.size()-1;
         while(i<j){
-            if(temp.get(i)!=temp.get(j)) return false;
+            if(!temp.get(i).equals(temp.get(j))) return false;
             i++;
             j--;
         }
@@ -53,7 +53,7 @@ class Solution {
     public boolean isSymmetric(TreeNode root) {
         int h=height(root);
         for(int i=1;i<=h;i++){
-            List<Integer> temp=new ArrayList<Integer>();
+            List<String> temp=new ArrayList<String>();
             if(!isPalindrome(currentLevel(root,i,temp))) return false;    
         }
         return true;
